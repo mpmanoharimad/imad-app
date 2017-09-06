@@ -6,8 +6,25 @@ var app = express();
 app.use(morgan('combined'));
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'index.html'));
+  res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
 });
+
+app.get('/a1', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
+});
+
+app.get('/a2', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index2.html'));
+});
+
+app.get('/a3', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index3.html'));
+});
+
+app.get('/a4', function (req, res) {
+  res.sendFile(path.join(__dirname, 'ui', 'index4.html'));
+});
+
 
 app.get('/ui/style.css', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'style.css'));

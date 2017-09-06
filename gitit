@@ -1,0 +1,14 @@
+
+# git clone https://github.com/mpmanoharimad/imad-app.git
+
+# git user name configs
+git config --global user.name "mpmanoharimad"
+git config --global user.email "mp.manohar@gmail.com"
+
+git add ui/*
+git add *
+git commit -m  "commit at `date +%Y%m%d%H%M`"
+echo "mpmanoharimad"
+echo "git@123"
+git push origin master 
+
