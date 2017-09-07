@@ -23,14 +23,15 @@ app.get('/', function (req, res) {
 
 app.get('/test-db', function (req, res) {
   // get and return data from db
-  pool.query('SELECT * from TEST', function (err,result){
+  console.log('dbcall');
+  pool.query('SELECT * from test', function (err,result){
       if (err){
           res.status(500).send(err.toString());
       } else{
           res.send(JSON.stringify(result));
       }
   });
-  console.log(err, res)
+  console.log(err, res);
   pool.end();
 });
 
