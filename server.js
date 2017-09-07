@@ -5,8 +5,22 @@ var path = require('path');
 var app = express();
 app.use(morgan('combined'));
 
+// for db
+var Pool=require('pg').Pool;
+var config={
+user:'mpmanohar',
+database:'mpmanohar',
+host:'localhost',
+port:'5432',
+password:'db-mpmanohar-60798'
+};
+
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
+});
+
+app.get('/test-db', function (req, res) {
+  // get and return data from db
 });
 
 app.get('/a1', function (req, res) {
