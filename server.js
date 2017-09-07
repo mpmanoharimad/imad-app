@@ -10,10 +10,12 @@ var Pool=require('pg').Pool;
 var config={
 user:'mpmanohar',
 database:'mpmanohar',
-host:'localhost',
+host:'db.imad.hasura-app.io',
 port:'5432',
 password:'db-mpmanohar-60798'
 };
+
+var pool = new Pool(config);
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
@@ -21,6 +23,15 @@ app.get('/', function (req, res) {
 
 app.get('/test-db', function (req, res) {
   // get and return data from db
+  pool.query('SELECT * from TEST', function (err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      } else{
+          res.send(JSON.stringify(result));
+      }
+  });
+  console.log(err, res)
+  pool.end();
 });
 
 app.get('/a1', function (req, res) {
