@@ -30,10 +30,8 @@ app.get('/test-db', function (req, res) {
       } else{
           res.send(JSON.stringify(result));
       }
-  });
-  console.log(err, res);
-  pool.end();
-});
+    });
+ });
 
 app.get('/a1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
