@@ -40,7 +40,7 @@ submit.onclick = function () {
           {
             nameList="";
             for (var i=0;i<names.length;i++)
-                nameList=nameList+'<li>'+names[i]+'</li>'
+                nameList=nameList+'<li>'+names[i]+'@'+myname+'.com</li>';
             nameul.innerHTML=nameList;
           }
       }
