@@ -46,6 +46,7 @@ submit.onclick = function () {
       }
     };
     
+    console.log('name ' + myname);
     request.open('GET', 'http://mpmanohar.imad.hasura-app.io/submit-name?name='+myname, true);
     request.send();
     
