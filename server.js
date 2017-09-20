@@ -21,6 +21,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/bala', function (req, res) {
+  res.sendFile(path.join(__dirname, 'bala', 'index.html'));
+});
+
 app.get('/test-db', function (req, res) {
   // get and return data from db
   console.log('dbcall');
