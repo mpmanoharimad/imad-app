@@ -47,6 +47,12 @@ app.get('/submit-name/:name', function(req,res) {
    res.send(JSON.stringify(names));
 });
 
+app.get('/submit-name', function(req,res) {
+   var name=req.query.name;
+   names.push(name);
+   res.send(JSON.stringify(names));
+});
+
 app.get('/a1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
 });
