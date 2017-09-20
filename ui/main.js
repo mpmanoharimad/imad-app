@@ -26,12 +26,13 @@ var nameInput=document.getElementById('name');
 var nameul=document.getElementById('nameul');
 var submit=document.getElementById('submit_btn');
 
-var myname=nameInput.value;
+
 
 submit.onclick = function () {
 
     var request = new XMLHttpRequest();
     var names=['name1', 'name2', 'name3', 'name4'];
+    var myname=nameInput.value;
 
     request.onreadystatechange = function() {
       if (request.readyState  === XMLHttpRequest.DONE)
