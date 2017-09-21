@@ -21,6 +21,18 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+function hash(input) {
+    return input+'hashed';
+}
+
+app.get('/hash/:input', function (req, res) {
+  var hashedString=hash(req.params.input);
+  res.send(hashedString);
+});
+
+
+
+
 app.get('/bala', function (req, res) {
   res.sendFile(path.join(__dirname, 'bala', 'index.html'));
 });
