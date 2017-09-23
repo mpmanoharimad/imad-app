@@ -28,7 +28,15 @@ function hash(input, salt) {
 
 app.get('/hash/:input', function (req, res) {
   var hashedString=hash(req.params.input, 'mysalt');
-  res.send(hashedString);
+  var dbstring="insert into user values('" + req.params.input + ",'" + hashedString + "');";
+  pool.query(dbString, function (err,result){
+      if (err){
+          res.status(500).send(err.toString());
+      } else{
+          res.send(hashedString);
+      }
+    });
+  
 });
 
 
