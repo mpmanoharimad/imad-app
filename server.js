@@ -23,7 +23,7 @@ app.get('/', function (req, res) {
 });
 
 function hash(input, salt) {
-    return crypto.pbkdf2Sync(input,salt,10,32,'sha512').toString('hex');
+    return crypto.pbkdf2Sync(input,salt,10,32,'sha32').toString('hex');
 }
 
 app.get('/hash/:input', function (req, res) {
