@@ -82,6 +82,11 @@ app.get('/submit-name', function(req,res) {
    res.send(JSON.stringify(names));
 });
 
+app.get('/getlyric', function(req,res) {
+    var myfile=req.query.myfile;
+    res.sendFile(path.join(__dirname, 'lyrics', myfile));
+});
+
 app.get('/a1', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index1.html'));
 });
