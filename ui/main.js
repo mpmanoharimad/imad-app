@@ -56,7 +56,7 @@ var lyrictxt=document.getElementById('lyrictxt');
 
 lyriclist.onchange = function () {
     var request = new XMLHttpRequest();
-    var myfile=showlist.value+".txt";
+    var myfile=lyriclist.value+".txt";
 
     request.onreadystatechange = function() {
       if (request.readyState  === XMLHttpRequest.DONE)
