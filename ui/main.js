@@ -26,8 +26,6 @@ var nameInput=document.getElementById('name');
 var nameul=document.getElementById('nameul');
 var submit=document.getElementById('submit_btn');
 
-
-
 submit.onclick = function () {
 
     var request = new XMLHttpRequest();
@@ -48,6 +46,31 @@ submit.onclick = function () {
     };
     
     request.open('GET', 'http://mpmanohar.imad.hasura-app.io/submit-name?name='+myname, true);
+    request.send();
+    
+};
+
+
+var lyriclist=document.getElementById('showlis');
+var lyrictxt=document.getElementById('lyrictxt');
+
+lyriclist.onchange = function () {
+
+    var request = new XMLHttpRequest();
+    var mysong=showlist.value+".txt";
+
+    request.onreadystatechange = function() {
+      if (request.readyState  === XMLHttpRequest.DONE)
+      {
+          if ( request.status===200)
+          {
+              var counter=request.responseText;
+              lyrictxt.innerHTML=counter.toString();
+          }
+      }
+    };
+    
+    request.open('GET', 'http://mpmanohar.imad.hasura-app.io/getlyric?myfile='+myfile, true);
     request.send();
     
 };
