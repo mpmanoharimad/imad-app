@@ -51,11 +51,10 @@ submit.onclick = function () {
 };
 
 
-var lyriclist=document.getElementById('showlis');
+var lyriclist=document.getElementById('showlist');
 var lyrictxt=document.getElementById('lyrictxt');
 
 lyriclist.onchange = function () {
-
     var request = new XMLHttpRequest();
     var mysong=showlist.value+".txt";
 
