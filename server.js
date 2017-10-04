@@ -22,6 +22,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+app.get('/lyrics', function (req, res) {
+  res.sendFile(path.join(__dirname, 'lyrics', 'index.html'));
+});
+
 function hash(input, salt) {
     return crypto.pbkdf2Sync(input,salt,10,512,'sha512').toString('hex');
 }
