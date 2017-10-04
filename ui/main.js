@@ -50,14 +50,14 @@ submit.onclick = function () {
     
 };
 
-
-var lyrictxt=document.getElementById('lyrictxt');
 var lyriclist1=document.getElementById('showlist1');
 var lyriclist2=document.getElementById('showlist2');
+var lyrictxt=document.getElementById('lyrictxt');
+
 
 lyriclist1.onchange = function () {
     var request = new XMLHttpRequest();
-    var myfile=lyriclist.value+".txt";
+    var myfile=lyriclist1.value+".txt";
 
     request.onreadystatechange = function() {
       if (request.readyState  === XMLHttpRequest.DONE)
@@ -77,7 +77,7 @@ lyriclist1.onchange = function () {
 
 lyriclist2.onchange = function () {
     var request = new XMLHttpRequest();
-    var myfile=lyriclist.value+".txt";
+    var myfile=lyriclist2.value+".txt";
 
     request.onreadystatechange = function() {
       if (request.readyState  === XMLHttpRequest.DONE)
