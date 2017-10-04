@@ -51,10 +51,31 @@ submit.onclick = function () {
 };
 
 
-var lyriclist=document.getElementById('showlist');
 var lyrictxt=document.getElementById('lyrictxt');
+var lyriclist1=document.getElementById('showlist1');
+var lyriclist2=document.getElementById('showlist2');
 
-lyriclist.onchange = function () {
+lyriclist1.onchange = function () {
+    var request = new XMLHttpRequest();
+    var myfile=lyriclist.value+".txt";
+
+    request.onreadystatechange = function() {
+      if (request.readyState  === XMLHttpRequest.DONE)
+      {
+          if ( request.status===200)
+          {
+              var counter='<pre>'+request.responseText+'</pre>';
+              lyrictxt.innerHTML=counter.toString();
+          }
+      }
+    };
+    
+    request.open('GET', 'http://mpmanohar.imad.hasura-app.io/getlyric?myfile='+myfile, true);
+    request.send();
+    
+};
+
+lyriclist2.onchange = function () {
     var request = new XMLHttpRequest();
     var myfile=lyriclist.value+".txt";
 
