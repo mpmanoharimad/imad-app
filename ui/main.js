@@ -63,7 +63,7 @@ lyriclist.onchange = function () {
       {
           if ( request.status===200)
           {
-              var counter='<p>'+request.responseText+'<p>';
+              var counter='<p>'+request.responseText+'</p>';
               lyrictxt.innerHTML=counter.toString();
           }
       }
