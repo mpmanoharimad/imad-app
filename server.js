@@ -52,7 +52,7 @@ app.get('/hash/:input', function (req, res) {
 });
 
 // *****************************************************************
-// ********************     section : maths ************************
+// ********************     section : maths START ******************
 // *****************************************************************
 
 app.get('/multiply', function (req, res) {
@@ -62,6 +62,10 @@ app.get('/multiply', function (req, res) {
 app.get('/maths/multiply', function (req, res) {
   res.sendFile(path.join(__dirname, 'maths/multiply', 'index.html'));
 });
+
+// *****************************************************************
+// ********************     section : maths END   ******************
+// *****************************************************************
 
 
 app.get('/bala', function (req, res) {
