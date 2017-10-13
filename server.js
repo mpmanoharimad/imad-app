@@ -59,6 +59,10 @@ app.get('/multiply', function (req, res) {
   res.sendFile(path.join(__dirname, 'maths/multiply', 'index.html'));
 });
 
+app.get('/maths/multiply/main.js', function (req, res) {
+  res.sendFile(path.join(__dirname, 'maths/multiply', 'main.js'));
+});
+
 app.get('/maths/multiply', function (req, res) {
   res.sendFile(path.join(__dirname, 'maths/multiply', 'index.html'));
 });
