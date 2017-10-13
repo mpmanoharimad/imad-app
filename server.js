@@ -6,7 +6,9 @@ var crypto=require('crypto');
 var app = express();
 app.use(morgan('combined'));
 
-// for db
+// *****************************************************************
+// ********************     config for db   ************************
+// *****************************************************************
 var Pool=require('pg').Pool;
 var config={
 user:'mpmanohar',
@@ -17,6 +19,12 @@ password:'db-mpmanohar-60798'
 };
 
 var pool = new Pool(config);
+
+
+
+// *****************************************************************
+// ********************     main section    ************************
+// *****************************************************************
 
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
@@ -43,7 +51,17 @@ app.get('/hash/:input', function (req, res) {
   
 });
 
+// *****************************************************************
+// ********************     section : maths ************************
+// *****************************************************************
 
+app.get('/multiply', function (req, res) {
+  res.sendFile(path.join(__dirname, 'maths/multiply', 'index.html'));
+});
+
+app.get('/maths/multiply', function (req, res) {
+  res.sendFile(path.join(__dirname, 'maths/multiply', 'index.html'));
+});
 
 
 app.get('/bala', function (req, res) {
