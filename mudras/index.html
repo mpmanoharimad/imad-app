@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<script>
+var showtitle=1;
+
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var induration=duration;
+    var switched=0;
+    var switchsec=3;
+    var switchcount=switchsec+1;
+    var titlesec=5;   // time to show title screen
+    var counter=0;
+
+    display.textContent = "00:"+ (titlesec < 10 ? "0" + titlesec : titlesec);
+
+// repeats every second
+    setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+
+        if (titlesec>0)  {
+               display.textContent = "00:" + (titlesec < 10 ? "0" + titlesec : titlesec);
+        }
+        else {
+	display.textContent = minutes + ":" + seconds;
+        }
+
+// decrement timer and check
+        --timer; 
+
+// let them breath between slides
+      if (switched==1) {
+               switchcount--;
+               if  (switchcount>0) {
+                     document.getElementById("time").innerHTML="Starting In " + switchcount + " seconds...";
+                     timer=induration;
+               }
+	else {
+                     switched=0;
+                     switchcount=switchsec+1;
+	}
+       }
+
+// first time reset of first image
+        if (timer>0&&counter==0&&titlesec<=0) {
+	timer = -1;
+        }
+        titlesec--;
+
+// mudras roll-over
+        if (timer<0) {
+	++counter;
+	timer = induration;
+                switched=1;
+               display.textContent = minutes + ":" + seconds;
+ 	if (counter==1)	 { 
+				document.getElementById("mymudra").src="1gyan.jpg";
+				document.getElementById("mtxt").innerHTML="Gyan Mudra";
+			}
+	if (counter==2) 	 { 
+				document.getElementById("mymudra").src="2prithvi.jpg";
+				document.getElementById("mtxt").innerHTML="Prithvi Mudra";
+			}
+	if (counter==3) 	 { 	
+				document.getElementById("mymudra").src="3varun.jpg";
+				document.getElementById("mtxt").innerHTML="VarunMudra";
+			}
+	if (counter==4) 	 { 
+				document.getElementById("mymudra").src="4vayu.jpg";
+				document.getElementById("mtxt").innerHTML="VayuMudra";
+			}
+	if (counter==5) 	 { 
+				document.getElementById("mymudra").src="5shunya.jpg";
+				document.getElementById("mtxt").innerHTML="Shunya Mudra";
+			}
+	if (counter==6) 	 { 
+				document.getElementById("mymudra").src="6surya.jpg";
+				document.getElementById("mtxt").innerHTML="SuryaMudra";
+			}
+	if (counter==7) 	 { 
+				document.getElementById("mymudra").src="7pran.jpg";
+				document.getElementById("mtxt").innerHTML="Pran Mudra";
+			}
+	if (counter==8) 	 { 
+				document.getElementById("mymudra").src="8apan.jpg";
+				document.getElementById("mtxt").innerHTML="Apan Mudra";
+			}
+	if (counter==9)  	{ 
+				document.getElementById("mymudra").src="9apanvayu.jpg";
+				document.getElementById("mtxt").innerHTML="Apan Vayu Mudra";
+			}
+	if (counter==10)  	{ 
+				document.getElementById("mymudra").src="10linga.jpg";
+				document.getElementById("mtxt").innerHTML="Linga Mudra";
+			}
+        }
+
+    }, 1000);
+}
+
+window.onload = function () {
+    showtitle=0;
+    var Minute = 60 * 1/6;
+    display = document.querySelector('#time');
+    startTimer(Minute, display);
+};
+</script>
+
+<body>
+	<font face=arial size=+5 color=green >
+	<center>
+		<img id=mymudra height=400 width=400 src="10mudras.jpg"> 
+	</center>
+	<center>
+	<div id="mtxt"> 
+		10 Mudras For Your Health
+	</div> 
+	</center>
+    	<div> 
+	<font face=arial size=+5 color=green >	
+	<center> 
+		<span id="time"> 01:00 </span>
+	</center>
+	</div>
+</body>
+</html>
