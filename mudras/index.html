@@ -18,11 +18,10 @@ function startTimer(duration, display) {
 // swap across local ("") and web (mudras)
 //
 // comment out for real run
-    titlesec=1;
-    switchsec=1;
+//    titlesec=1;
+//    switchsec=1;
 //
-    subfolder="";
-    subfolder="mudras";
+    subfolder="mudras/";
     document.getElementById("mymudra").src=subfolder+"10mudras.jpg";
 // ************ IMPORTANT END **************
 
@@ -90,7 +89,7 @@ function startTimer(duration, display) {
 }
 window.onload = function () {
     showtitle=0;
-    var Minute = 60 * 1/60;   						// set timer here
+    var Minute = 60 * 1;   						// set timer here
     display = document.querySelector('#time');
     startTimer(Minute, display);
 };
