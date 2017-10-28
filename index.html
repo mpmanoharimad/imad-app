@@ -1,0 +1,116 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+img { height:100%; width:auto; }
+</style>
+<script>
+var showtitle=1;
+function startTimer(duration, display) {
+    var timer = duration, minutes, seconds;
+    var induration=duration;
+    var switched=0;
+    var switchsec=3;
+    var switchcount=switchsec+1;
+    var titlesec=5;   // time to show title screen
+    var counter=0;
+    var subfolder="";
+    display.textContent = "00:"+ (titlesec < 10 ? "0" + titlesec : titlesec);
+
+// ************ IMPORTANT START **************
+// swap across local ("") and web (mudras)
+//
+// comment out for real run
+//    titlesec=1;
+//    switchsec=1;
+//
+    subfolder="mudras/";
+    document.getElementById("mymudra").src=subfolder+"10mudras.jpg";
+// ************ IMPORTANT END **************
+
+// set image and text
+    function setText( mImage, mText) {
+	document.getElementById("mymudra").src=subfolder+mImage;
+	document.getElementById("mtxt").innerHTML=counter+": "+ mText;
+    }
+
+// repeats every second
+    var refid = setInterval(function () {
+        minutes = parseInt(timer / 60, 10)
+        seconds = parseInt(timer % 60, 10);
+        minutes = minutes < 10 ? "0" + minutes : minutes;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        if (titlesec>0)  {
+               display.textContent = "00:" + (titlesec < 10 ? "0" + titlesec : titlesec);
+        }
+        else {
+	display.textContent = minutes + ":" + seconds;
+        }
+// decrement timer and check
+        --timer; 
+// let them breath between slides
+      if (switched==1) {
+               switchcount--;
+               if  (switchcount>0) {
+                     document.getElementById("time").innerHTML="Starting In " + switchcount + " seconds...";
+                     timer=induration;
+               }
+	else {
+                     switched=0;
+                     switchcount=switchsec+1;
+	}
+       }
+// first time reset of first image
+        if (timer>0&&counter==0&&titlesec<=0) {
+	timer = -1;
+        }
+        titlesec--;
+// mudras roll-over
+        if (timer<0) {
+	++counter;
+	timer = induration;
+                switched=1;
+               display.textContent = minutes + ":" + seconds;
+ 	if (counter==1)	 setText("1gyan.jpg", 	"Gyan Mudra");
+	if (counter==2) 	 setText("2prithvi.jpg",	"Prithvi Mudra");
+	if (counter==3) 	 setText("3varun.jpg",	"VarunMudra");
+	if (counter==4) 	 setText( "4vayu.jpg",	"VayuMudra");
+	if (counter==5) 	setText( "5shunya.jpg",	"Shunya Mudra");
+	if (counter==6) 	setText( "6surya.jpg",	"SuryaMudra");
+	if (counter==7) 	setText("7pran.jpg",	"Pran Mudra");
+	if (counter==8) 	setText( "8apan.jpg",	"Apan Mudra");
+	if (counter==9)  	 setText( "9apanvayu.jpg",	"Apan Vayu Mudra");
+	if (counter==10)  	setText( "10linga.jpg",	"Linga Mudra");
+	if (counter==11)  	{
+	    document.getElementById("mymudra").src=subfolder+"10done.jpg";  // test it
+    	    document.getElementById("mtxt").innerHTML="";
+	    display.textContent ="";
+                    clearInterval(refid);
+	}
+        }
+    }, 1000);
+}
+window.onload = function () {
+    showtitle=0;
+    var Minute = 60 * 1;   						// set timer here
+    display = document.querySelector('#time');
+    startTimer(Minute, display);
+};
+</script>
+</head>
+<body>
+	<font face=arial size=+5 color=green >
+	<center>
+		<img id=mymudra height=400 width=400 src="mudras/10mudras.jpg"> 
+	</center>
+	<center>
+	<div id="mtxt"> 
+		10 Mudras For Your Health
+	</div> 
+	</center>
+	</font>
+    <div> <font face=arial size=+5 color=green >	
+	<center> 		<span id="time"> 01:00 </span>	</center> </font>
+	</div>
+</body>
+</html>
