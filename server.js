@@ -106,6 +106,11 @@ app.get('/submit-name/:name', function(req,res) {
    res.send(JSON.stringify(names));
 });
 
+var names=[];
+app.get('/mudras/:name', function(req,res) {
+    res.sendFile(path.join(__dirname, 'mudras', req.query.name));
+});
+
 app.get('/submit-name', function(req,res) {
    var name=req.query.name;
    names.push(name);
