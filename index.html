@@ -1,9 +1,18 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
+
 <style>
-img { height:100%; width:auto; }
+table {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   margin-top: -250px; /* Half the height */
+   margin-left: -250px; /* Half the width */
+}
 </style>
+
+
 <script>
 var showtitle=1;
 function startTimer(duration, display) {
@@ -99,10 +108,14 @@ window.onload = function () {
 </script>
 </head>
 <body>
-	<font face=arial size=+5 color=green >
+<table> 
+<tr><td>
 	<center>
 		<img id=mymudra height=400 width=400 src="mudras/10mudras.jpg"> 
 	</center>
+</td></tr>
+<tr><td>
+	<font face=arial size=+5 color=green >
 	<center>
 	<div id="mtxt"> 
 		10 Mudras For Your Health
@@ -112,5 +125,7 @@ window.onload = function () {
     <div> <font face=arial size=+5 color=green >	
 	<center> 		<span id="time"> 01:00 </span>	</center> </font>
 	</div>
+</td></tr>
+</tr></table> 
 </body>
 </html>
